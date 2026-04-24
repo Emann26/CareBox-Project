@@ -1,16 +1,16 @@
 /* --- THEMED VARIABLES --- */
 :root {
-  --bg-color: #0b0f19;
-  --card-bg: #161b2c;
-  --accent-blue: #38bdf8;
-  --action-green: #10b981;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
+  --bg-color: #0b0f19;       /* Deep Midnight */
+  --card-bg: #161b2c;        /* Soft Navy Card */
+  --accent-blue: #38bdf8;    /* Electric Blue */
+  --action-green: #10b981;   /* Modern Emerald Green */
+  --text-primary: #f1f5f9;   /* Off-white */
+  --text-secondary: #94a3b8; /* Muted Grey */
 }
 
 /* --- Global Styles --- */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-primary);
   margin: 0;
@@ -18,7 +18,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* --- Navigation --- */
+/* --- Professional Navigation --- */
 nav {
   background: rgba(11, 15, 25, 0.8);
   backdrop-filter: blur(12px); 
@@ -35,20 +35,22 @@ nav ul {
   gap: 30px;
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 nav a {
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 nav a:hover {
   color: var(--accent-blue);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
-/* --- Sections --- */
+/* --- Section Cards --- */
 section {
   max-width: 900px;
   margin: 60px auto;
@@ -64,26 +66,37 @@ section {
   background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 70%);
   border: none;
   box-shadow: none;
+  padding: 120px 20px;
 }
 
 h1 {
   font-size: 3.5rem;
+  margin: 0;
   background: linear-gradient(to right, #fff, var(--accent-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 h2 {
+  font-size: 1.8rem;
   color: var(--accent-blue);
+  margin-top: 0;
   border-left: 4px solid var(--accent-blue);
   padding-left: 15px;
 }
 
 /* --- Centering Utilities --- */
-.center-content { text-align: center; }
-.button-wrapper { margin-top: 30px; }
+.center-content { 
+  text-align: center; 
+}
 
-/* --- Premium Button --- */
+.button-wrapper { 
+  margin-top: 30px; 
+  display: flex;
+  justify-content: center;
+}
+
+/* --- THE PREMIUM DOWNLOAD BUTTON --- */
 .btn-download {
   display: inline-block;
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -92,17 +105,26 @@ h2 {
   border-radius: 14px;
   font-weight: 700;
   text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
 }
 
 .btn-download:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 20px 30px -10px rgba(16, 185, 129, 0.6);
+  filter: brightness(1.1);
 }
 
-/* --- Gallery Layout --- */
+.btn-download:active {
+  transform: translateY(-1px);
+}
+
+/* --- Gallery Styling --- */
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -110,7 +132,9 @@ h2 {
   margin-top: 30px;
 }
 
-.gallery-item { text-align: center; }
+.gallery-item { 
+  text-align: center; 
+}
 
 .gallery-item img {
   width: 100%;
@@ -119,10 +143,13 @@ h2 {
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: 0.3s;
+  filter: brightness(0.9);
+  box-shadow: 0 5px 15px rgba(56, 189, 248, 0.05);
 }
 
 .gallery-item img:hover {
   transform: scale(1.05);
+  filter: brightness(1.1);
   border-color: var(--accent-blue);
 }
 
@@ -130,13 +157,7 @@ h2 {
   margin-top: 10px;
   font-size: 0.9rem;
   color: var(--text-secondary);
-}
-
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 40px;
-  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 /* --- Instructions Grid Styling --- */
@@ -156,7 +177,7 @@ footer {
 
 .step h3 {
     color: var(--accent-blue);
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-top: 0;
 }
 
@@ -187,9 +208,24 @@ footer {
     color: var(--accent-blue);
 }
 
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
 /* Responsive fix for smaller screens */
 @media (max-width: 600px) {
     .instruction-grid {
         grid-template-columns: 1fr;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    section {
+        margin: 20px 15px;
+        padding: 25px;
     }
 }
